@@ -1,8 +1,8 @@
-@import '/navegacao.css';
-@import '/descricao.css';
-@import '/animais-lista.css';
-@import '/faq.css';
-@import '/contato.css';
+@import './css/navegacao.css';
+@import './css/descricao.css';
+@import './css/animais-lista.css';
+@import './css/faq.css';
+@import './css/contato.css';
 dt{
   cursor: pointer;
 }
