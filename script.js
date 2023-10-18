@@ -1,40 +1,3 @@
-function lista() {
-  const tabmenu = document.querySelectorAll('.js-lista li');
-  const tabcontent = document.querySelectorAll('.js-desc section');
-  const menu = document.querySelector('.js-lista');
-  const alturaMenu = menu.clientHeight;
-
-  function ativar(index) {
-    tabcontent.forEach((content) => {
-      content.classList.remove('ativo');
-    });
-    tabcontent[index].classList.add('ativo');
-  }
-
-  menu.addEventListener('scroll', () => {
-    let imagemVisivel = null;
-    tabmenu.forEach((imagem, index) => {
-      const topoImagem = imagem.getBoundingClientRect().top; 
-      
-      const alturaImagem = imagem.clientHeight;  //pega a altura da imagem
-
-      if (topoImagem >= 0 && topoImagem <= alturaMenu) { //Quando o topo da imagem chega no inicio da altura do menu atualiza
-        imagemVisivel = index;
-      }
-    });
-
-    //Ativa o paragrafo correspondente a imagem visivel
-    if (imagemVisivel !== null) {
-      ativar(imagemVisivel);
-    }
-  });
-}
-  
-
-
-
-
-
 function accordeon(){
   const accordion = document.querySelectorAll('.js-accordion dt');
   const resposta =document.querySelectorAll('.js-accordion dd');
@@ -71,14 +34,13 @@ tabmenu.forEach((item, index)=>{
    })
 });
 }
-
 function scrollsuave(){
 const linkinterno = document.querySelectorAll('.js-menu a[href^="#"]');
 function scroll(event){
   event.preventDefault();
   const href = event.currentTarget.getAttribute('href');
   const section = document.querySelector(href)
-  section.scrollIntoView({
+section.scrollIntoView({
   behavior:'smooth',
   block: 'start',
 })
@@ -94,7 +56,7 @@ linkinterno.forEach((link) =>{
   link.addEventListener('click',scroll);
 })
 }
-lista()
+
 menu();
 accordeon();
 scrollsuave();
@@ -104,15 +66,21 @@ scrollsuave();
 function animacao(){
   const sections = document.querySelectorAll('.js-scroll');
   
-  function animasrcoll() {
-    sections.forEach((section) => {
-      const windowmetade = window.innerHeight*0.6;
-      const sectiontop = section.getBoundingClientRect().top ;
-      const metadetela = sectiontop - windowmetade;
-    
-      metadetela < 0 && section.classList.add('ativo')
-    })}
+function animasrcoll(){
+  sections.forEach((section)=>{
+    const windowmetade = window.innerHeight*0.6;
+    const sectiontop = section.getBoundingClientRect().top - windowmetade;
+   
+    if(sectiontop < 0){
+      section.classList.add('ativo');
+    }
+    else
+    section.classList.remove('ativo')
+
+  });
+
+  }
   animasrcoll();
-  window.addEventListener('scroll' , animasrcoll);
+window.addEventListener('scroll' , animasrcoll);
 }
 animacao();
