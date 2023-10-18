@@ -1,0 +1,14 @@
+.lista{
+  height: 22.5rem;
+  overflow-y: scroll;
+  grid-column: 2;
+  cursor: pointer;
+}
+.lista::-webkit-scrollbar{
+  width: 1.125rem;
+}
+.lista::-webkit-scrollbar-thumb{
+  background: #FB5;
+  border-left: 4px solid #faf6ed;
+  border-right: 4px solid #faf6ed;
+}

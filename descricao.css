@@ -1,0 +1,24 @@
+.descricao{
+  grid-column: 3;
+}
+.descricao h2{
+  font-family: 'IBM Plex Mono' , monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-bottom: 1rem;
+  color: #E54;
+}
+.descricao h2::before{
+  content: '';
+  display: inline-block;
+  width: 2.5rem;
+  height: .625rem;
+  margin-right: .625rem;
+  background: #FB5;
+}
+.descricao p{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
